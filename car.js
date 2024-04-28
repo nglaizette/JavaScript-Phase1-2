@@ -1,13 +1,13 @@
 class Car{
 
-	constructor(x, y, width, height, controlType, maxSpeed=3, color="blue"){
+	constructor(x, y, width, height, controlType,angle=0, maxSpeed=3, color="blue"){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 
 		this.speed = 0;
-		this.angle = 0;
+		this.angle = angle;
 		this.acceleration=0.2;
 		this.maxSpeed = maxSpeed;
 		this.friction = 0.05;
