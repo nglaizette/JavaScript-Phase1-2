@@ -160,6 +160,7 @@ class Car{
 
 		ctx.save();
 		ctx.translate(this.x, this.y);
+		ctx.rotate(-this.angle);
 		if(!this.damaged){
 			ctx.drawImage(this.mask,
 				-this.width/2.0,
