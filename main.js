@@ -60,9 +60,6 @@ function animate(time) {
 	carCanvas.height=window.innerHeight;
 	networkCanvas.height=window.innerHeight;
 
-	carCtx.save();
-	carCtx.translate(0, -bestCar.y + carCanvas.height*0.7);
-
 	for(let i =0; i<traffic.length; i++){
 		traffic[i].draw(carCtx, "red");
 	}
@@ -73,8 +70,6 @@ function animate(time) {
 	}
 	carCtx.globalAlpha=1;
 	bestCar.draw(carCtx, "blue", true);
-	
-	carCtx.restore();
 
 	networkCtx.lineDashOffset = - time / 50;
 	Visualizer.drawNetwork(networkCtx, bestCar.brain);
