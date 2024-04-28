@@ -69,7 +69,7 @@ function animate(time) {
 
 	// recherche de la voiture dont le y est le minimum de toutes les voitures
 	bestCar = cars.find(
-		c => c.fitness==Math.max(...cars.map(c=>c.y))
+		c => c.fitness==Math.max(...cars.map(c=>c.fitness))
 	);
 
 	world.cars = cars;
