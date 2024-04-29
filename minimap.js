@@ -12,10 +12,16 @@ class MiniMap {
 	update(viewPoint){
 		this.ctx.clearRect(0, 0, this.size, this.size)
 		
+		const scaler = 0.05;
+		const scaledViewPoint = scale(viewPoint, -scaler);
 		this.ctx.save();
-		this.ctx.translate(-viewPoint.x, -viewPoint.y);
+		this.ctx.translate(
+			scaledViewPoint.x + this.size /2.0,
+			scaledViewPoint.y + this.size / 2.0
+		);
+		this.ctx.scale(scaler, scaler);
 		for(const segment of this.graph.segments){
-			segment.draw(this.ctx);
+			segment.draw(this.ctx, {width: 3 / scaler});
 		}
 		this.ctx.restore();
 	}
