@@ -21,8 +21,10 @@ class MiniMap {
 		);
 		this.ctx.scale(scaler, scaler);
 		for(const segment of this.graph.segments){
-			segment.draw(this.ctx, {width: 3 / scaler});
+			segment.draw(this.ctx, {width: 3 / scaler, color: "white"});
 		}
 		this.ctx.restore();
+
+		new Point(this.size/2.0, this.size /2.0).draw(this.ctx, {color: "blue", outline: true});
 	}
 }

@@ -27,3 +27,7 @@ button:hover{
 #carCanvas{
 	background: #2a5;
 }
+
+#minimapCanvas{
+	background: black;
+}
