@@ -4,8 +4,14 @@ carCanvas.width=window.innerWidth - 330;
 const networkCanvas = document.getElementById("networkCanvas");
 networkCanvas.width=300;
 
+const minimapCanvas = document.getElementById("minimapCanvas");
+minimapCanvas.width=300;
+minimapCanvas.height=300;
+
 carCanvas.height=window.innerHeight;
-networkCanvas.height=window.innerHeight;
+networkCanvas.height=window.innerHeight-300;
+
+
 
 const carCtx = carCanvas.getContext("2d");
 const networkCtx = networkCanvas.getContext("2d");
@@ -15,6 +21,7 @@ const worldInfo = worldString ? JSON.parse(worldString) : null;
 const world = worldInfo ? World.load(worldInfo) : new World(new Graph());*/
 
 const viewport = new Viewport(carCanvas, world.zoom, world.offset);
+const miniMap = new MiniMap(minimapCanvas, world.graph, 300);
 
 const N=1;
 const cars = generateCars(N);
@@ -81,6 +88,7 @@ function animate(time) {
 	viewport.reset();
 	const viewPoint = scale(viewport.getOffset(), -1);
 	world.draw(carCtx, viewPoint, false);
+	miniMap.update(viewPoint);
 
 	for(let i =0; i<traffic.length; i++){
 		traffic[i].draw(carCtx, "red");
