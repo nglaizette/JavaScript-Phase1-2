@@ -8,7 +8,7 @@ class Light extends Marking{
 		this.type = "light";
 	}
 
-	draw() {
+	draw(ctx) {
 		const perp = perpendicular(this.directionVector);
 		const line = new Segment(
 			add(this.center, scale(perp, this.width / 2.0)),

@@ -10,9 +10,9 @@ networkCanvas.height=window.innerHeight;
 const carCtx = carCanvas.getContext("2d");
 const networkCtx = networkCanvas.getContext("2d");
 
-const worldString = localStorage.getItem("world");
+/*const worldString = localStorage.getItem("world");
 const worldInfo = worldString ? JSON.parse(worldString) : null;
-const world = worldInfo ? World.load(worldInfo) : new World(new Graph());
+const world = worldInfo ? World.load(worldInfo) : new World(new Graph());*/
 
 const viewport = new Viewport(carCanvas, world.zoom, world.offset);
 
@@ -53,7 +53,7 @@ function generateCars(N) {
 
 	const cars = [];
 	for(let i=0; i < N; i++){
-		cars.push(new Car(startPoint.x, startPoint.y, 30, 50, "KEYS", startAngle));
+		cars.push(new Car(startPoint.x, startPoint.y, 30, 50, "AI", startAngle));
 	}
 	return cars;
 }
